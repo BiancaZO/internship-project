@@ -1,0 +1,21 @@
+function Checkfiles(){
+    var fup = document.getElementById('filename');
+    var fileName = fup.value;
+    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+
+    if(ext =="jpeg" || ext=="png"){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+const validTypes = ['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG', 'pdf', 'PDF']
+
+const valid = validTypes.filter(e=>{ if(files[0].name.includes(e)) return e })
+
+if (!files[0].name.includes(valid[0])) {
+    alert('Por favor insira o imagens nos formatos JPG, PNG e PDF')
+    return
+}
