@@ -1,0 +1,25 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(white);
+    background-image: url("assets/site.png");
+  }
+  /* .previewImage{
+      
+
+  } */
+
+btn{
+position: absolute;
+top: 1000px;
+}
+
+.image{
+  margin-left: 300px;
+}
+.container{
+  position: absolute;
+}
