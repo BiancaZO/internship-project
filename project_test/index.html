@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <meta charset="utf-8">
+  <title>Projeto Estágio</title>0
+
+  
+  
+</head>
+
+<body>
+  <h1>Visualizador de Ambiente</h1>
+  <div class="input">
+    <form method="POST" action="" enctype="multipart/form-data">
+      <input type="file" name="imagem" id="imagem" onchange="previewImagem()"><br><br>
+      <img style="width: 1200px; height: 600px; position:absolute"><br><br>
+
+
+    </form>
+  </div>
+  <div class="btn">
+    <input type="submit" value="Download" id="btn" style="position: absolute; margin-top:580px;">
+  </div>
+  <script src="https://unpkg.com/konva@8.3.5/konva.min.js"></script>
+
+
+  <body>
+    <div id="container">
+    <script>
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height,
+      });
+
+      var layer = new Konva.Layer();
+      stage.add(layer);
+      //sofa
+      var sofa = new Konva.Image({
+        width: 300,
+        height: 137,
+        draggable: true,
+
+      });
+      layer.add(sofa);
+
+      var imageObj1 = new Image();
+      imageObj1.onload = function () {
+        sofa.image(imageObj1);
+      };
+      imageObj1.src = 'assets/sofa.png';
+
+
+
+      var tr1 = new Konva.Transformer({
+        nodes: [sofa],
+        keepRatio: true,
+        rotateEnabled: false,
+        borderEnabled: false,
+        ignoreStroke: true,
+        flipEnabled: false,
+        
+        enabledAnchors: [
+          'top-left',
+          'top-right',
+          'bottom-left',
+          'bottom-right',
+          
+        ],
+
+      });
+      layer.add(tr1);
+
+     
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <div id="image">
+
+    <script>
+      function previewImagem() {
+        var imagem = document.querySelector('input[name=imagem]').files[0];
+        var preview = document.querySelector('img');
+
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+          preview.src = reader.result;
+        }
+
+        if (imagem) {
+          reader.readAsDataURL(imagem);
+        } else {
+          preview.src = "";
+        }
+      }
+    </script>
+    </div>
+</div>
+  </body>
+
+</html>
